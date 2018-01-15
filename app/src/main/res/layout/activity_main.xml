@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.amalzoheir.hapittracker.MainActivity">
+
+    <EditText
+        android:id="@+id/habit_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="habit name"/>
+
+    <EditText
+        android:id="@+id/number_of_practice"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="nubmer of practice" />
+
+    <TextView
+        android:id="@+id/display_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.47"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/button_add_habit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Habit" />
+</LinearLayout>
