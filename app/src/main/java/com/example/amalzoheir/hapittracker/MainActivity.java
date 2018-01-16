@@ -41,14 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayDatabaseInfo() {
-        hapitDbHelper mDbHelper = new hapitDbHelper(this);
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-        String[] projection = {
-                habitContract.habitEntry._ID,
-                habitContract.habitEntry.COLUMN_habit_NAME,
-                habitContract.habitEntry.COLUMN_habit_numberOfPractice
-        };
-        Cursor cursor = db.query(habitContract.habitEntry.TABLE_NAME, projection, null, null, null, null, null);
+        Cursor cursor = read();
         try {
             showData.setText("Number of rows in pets database table: " + cursor.getCount());
             int idIndex = cursor.getColumnIndex(habitContract.habitEntry._ID);
@@ -65,7 +58,17 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
         }
     }
-
+    private Cursor read(){
+        hapitDbHelper mDbHelper = new hapitDbHelper(this);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        String[] projection = {
+                habitContract.habitEntry._ID,
+                habitContract.habitEntry.COLUMN_habit_NAME,
+                habitContract.habitEntry.COLUMN_habit_numberOfPractice
+        };
+        Cursor cursor = db.query(habitContract.habitEntry.TABLE_NAME, projection, null, null, null, null, null);
+        return cursor;
+    }
     private void insertHabit() {
         SQLiteDatabase db = mDBHlper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
